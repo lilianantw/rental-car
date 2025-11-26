@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";     
 import { Manrope } from "next/font/google";
+import Header from "@/components/layout/Header/Header"; 
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -16,7 +17,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={manrope.variable}>
-      <body>{children}</body>
+      <body>
+        <Header /> 
+        {children}
+        </body>
     </html>
   );
 }

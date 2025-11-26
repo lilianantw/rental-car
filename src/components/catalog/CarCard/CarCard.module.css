@@ -1,0 +1,142 @@
+.card {
+  width: 274px;
+  border-radius: 14px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+}
+
+/* фото */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 268px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* сердечко */
+.favBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+
+.favBtn:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Заголовок + цена */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ТОЛЬКО 1 строка — строго как в Фигме */
+.title {
+  font-family: var(--font-manrope);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #121417;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 1; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 190px;
+}
+
+/* Модель — синяя */
+.model {
+  color: #3470ff;
+}
+
+/* Год — отдельная строка */
+.year {
+  font-family: var(--font-manrope);
+  font-size: 14px;
+  font-weight: 400;
+  color: #8a8a89;
+  margin-top: 4px;
+}
+
+/* Цена */
+.price {
+  font-family: var(--font-manrope);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #3470ff;
+}
+
+/* инфо */
+.metaLine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  font-family: var(--font-manrope);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #8a8a89;
+}
+
+.metaLine + .metaLine {
+  margin-top: 4px;
+}
+
+.metaLine span {
+  position: relative;
+}
+
+.metaLine span + span::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 16px;
+  background-color: rgba(138, 138, 137, 0.2);
+}
+
+/* кнопка */
+.button {
+  margin-top: 24px;
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+
+  font-family: var(--font-manrope);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.43;
+  text-align: center;
+
+  background-color: #3470ff;
+  color: #ffffff;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: #0b44cd;
+}

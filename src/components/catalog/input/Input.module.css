@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Лейбл */
+.label {
+  font-family: var(--font-manrope);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  color: #8d929a;
+}
+
+/* Инпут */
+.input {
+  width: 160px;
+  height: 44px;
+
+  background: #F7F7F7;
+  border-radius: 12px;
+  border: 1px solid #DADDE1;
+
+  padding: 0 18px;
+
+  font-family: var(--font-manrope);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #101828;
+
+  outline: none;
+}
+
+.input::placeholder {
+  color: #8d929a;
+}
+
+.input:focus {
+  border-color: #3470ff;
+}

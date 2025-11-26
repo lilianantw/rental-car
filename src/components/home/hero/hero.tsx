@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import Button from "@/components/ui/Button/Button";
 import styles from "./hero.module.css";
 
 const Hero = () => {
@@ -18,11 +20,15 @@ const Hero = () => {
         <div className={styles.content}>
           <h1 className={styles.title}>Find your perfect rental car</h1>
 
-          <p className={styles.subtitle}>
-            Reliable and budget-friendly rentals for any journey
-          </p>
+      <p className={styles.subtitle}>
+        Reliable and budget-friendly rentals for any journey
+      </p>
 
-          <button className={styles.button}>View Catalog</button>
+      <Link href="/catalog">
+        <Button variant="primary" size="large">
+          View Catalog
+        </Button>
+       </Link>
         </div>
       </div>
     </section>

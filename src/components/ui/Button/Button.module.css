@@ -1,0 +1,84 @@
+/*  Основная кнопка  */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-manrope, Manrope), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+
+   white-space: nowrap;
+
+  border-radius: 12px;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease;
+}
+
+/* PRIMARY (синие кнопки) —  View Catalog, Read more*/
+
+.primary {
+  background-color: #3470ff;
+  color: #ffffff;
+}
+
+.primary:hover {
+  background-color: #0b44cd;
+}
+
+
+
+/* большая — Read more, View Catalog на карточках */
+.primaryLarge {
+  width: 276px; 
+  height: 44px;
+  padding: 12px 99px;
+  white-space: nowrap; /* текст НЕ переносится */
+}
+
+
+/* средняя — Search */
+.primaryMedium {
+  width: 120px;   
+  height: 44px;
+  padding: 12px 0;
+}
+
+/* маленькая — View Catalog в Hero */
+.primarySmall {
+  width: 100px;   
+  height: 20px;
+  padding: 0;
+}
+
+/*  SECONDARY (Load more) */
+
+.secondary {
+  background-color: #ffffff;
+  color: #101828;
+  border: 1px solid #3470ff;
+}
+
+.secondary:hover {
+  border-color: #0b44cd;
+  color: #0b44cd;
+}
+
+/* размеры secondary */
+
+.secondaryMedium {
+  width: 156px;
+  height: 44px;
+  padding: 12px 51px;
+}
+
+.secondarySmall {
+  width: 80px;
+  height: 20px;
+  padding: 0;
+}
