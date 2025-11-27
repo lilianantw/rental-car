@@ -1,6 +1,8 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+module.exports = {
+  experimental: {
+    serverSourceMaps: false,  // ← ВОТ ЭТО ГЛАВНОЕ
+  },
   images: {
     remotePatterns: [
       {
@@ -11,5 +13,3 @@ const nextConfig: NextConfig = {
     ],
   },
 };
-
-export default nextConfig;
