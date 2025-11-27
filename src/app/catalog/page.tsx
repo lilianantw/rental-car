@@ -1,73 +1,38 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 import Filters from "@/components/catalog/Filters/Filters";
 import CarsList from "@/components/catalog/CarsList/CarsList";
 import LoadMoreButton from "@/components/ui/LoadMoreButton/LoadMoreButton";
 
-import { fetchCars } from "@/services/api/carsApi";
-import type { Car, CarFilterParams } from "@/types/car.types";
+import { useEffect } from "react";
+import { useCarsStore } from "@/store/useCarsStore";
 
 export default function CatalogPage() {
-  const [cars, setCars] = useState<Car[]>([]);
-  const [loading, setLoading] = useState(false);
+  const {
+    cars,
+    loading,
+    hasMore,
 
-  const [brand, setBrand] = useState<string | null>(null);
-  const [price, setPrice] = useState<string | null>(null);
-  const [mileageFrom, setMileageFrom] = useState<string | null>(null);
-  const [mileageTo, setMileageTo] = useState<string | null>(null);
+    // filters
+    brand,
+    price,
+    mileageFrom,
+    mileageTo,
 
-  const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
+    setBrand,
+    setPrice,
+    setMileageFrom,
+    setMileageTo,
 
-  const loadCars = async (params: CarFilterParams = {}, append = false) => {
-    setLoading(true);
+    loadCars,
+    searchWithFilters,
+    loadMore,
+  } = useCarsStore();
 
-    try {
-      const data = await fetchCars({
-        page: String(page),
-        limit: "12",
-        ...params,
-      });
-
-      if (append) {
-        setCars((prev) => [...prev, ...data.cars]);
-      } else {
-        setCars(data.cars);
-      }
-
-      setHasMore(data.cars.length === 12);
-    } catch (error) {
-      console.error("Ошибка загрузки:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
+  // загрузка первой страницы
   useEffect(() => {
     loadCars();
   }, []);
-
-  const currentParams = () => {
-    const params: CarFilterParams = {};
-    if (brand) params.brand = brand;
-    if (price) params.rentalPrice = price;
-    if (mileageFrom) params.minMileage = mileageFrom;
-    if (mileageTo) params.maxMileage = mileageTo;
-    return params;
-  };
-
-  const handleSearch = () => {
-    setPage(1);
-    loadCars(currentParams(), false);
-  };
-
-  const handleLoadMore = () => {
-    const next = page + 1;
-    setPage(next);
-    loadCars({ ...currentParams(), page: String(next) }, true);
-  };
 
   return (
     <main className="container">
@@ -80,23 +45,19 @@ export default function CatalogPage() {
         onPriceChange={setPrice}
         onMileageFromChange={setMileageFrom}
         onMileageToChange={setMileageTo}
-        onSearch={handleSearch}
+        onSearch={searchWithFilters}
       />
 
       <div style={{ marginTop: "64px" }}>
-        {loading && page === 1 ? (
+        {loading && cars.length === 0 ? (
           <p>Загрузка...</p>
         ) : (
-          <CarsList
-            cars={cars}
-            onLoadMore={handleLoadMore}
-            hasMore={hasMore}
-          />
+          <CarsList cars={cars} onLoadMore={loadMore} hasMore={hasMore} />
         )}
       </div>
 
       {hasMore && (
-        <LoadMoreButton loading={loading} onClick={handleLoadMore} />
+        <LoadMoreButton loading={loading} onClick={loadMore} />
       )}
     </main>
   );

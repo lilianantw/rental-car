@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Image from "next/image";
 import styles from "./Filters.module.css";
 
@@ -15,6 +16,22 @@ type FiltersProps = {
   onSearch: () => void;
 };
 
+// статический список брендов и цен — как в макете/по ТЗ
+const BRAND_OPTIONS = [
+  "BMW",
+  "Audi",
+  "Mercedes-Benz",
+  "Toyota",
+  "Honda",
+  "Kia",
+  "Hyundai",
+  "Volkswagen",
+  "Nissan",
+  "Ford",
+];
+
+const PRICE_OPTIONS = ["10", "20", "30", "40", "50", "60", "70", "100", "150"];
+
 export default function Filters({
   brand,
   price,
@@ -26,32 +43,136 @@ export default function Filters({
   onMileageToChange,
   onSearch,
 }: FiltersProps) {
+  const [isBrandOpen, setIsBrandOpen] = useState(false);
+  const [isPriceOpen, setIsPriceOpen] = useState(false);
+
+  const handleBrandSelect = (value: string | null) => {
+    onBrandChange(value);
+    setIsBrandOpen(false);
+  };
+
+  const handlePriceSelect = (value: string | null) => {
+    onPriceChange(value);
+    setIsPriceOpen(false);
+  };
+
   return (
     <div className={styles.wrapper}>
+      {/* BRAND */}
       <div className={styles.block}>
         <label className={styles.label}>Car brand</label>
 
         <div
           className={styles.select}
-          onClick={() => onBrandChange(brand === "BMW" ? null : "BMW")}
+          onClick={() => {
+            setIsBrandOpen((prev) => !prev);
+            setIsPriceOpen(false);
+          }}
         >
           <span>{brand ?? "Choose a brand"}</span>
-          <Image src="/vector.svg" alt="arrow" width={13} height={7} />
+          <Image
+            src="/vector.svg"
+            alt="arrow"
+            width={13}
+            height={7}
+            className={`${styles.arrow} ${
+              isBrandOpen ? styles.arrowOpen : ""
+            }`}
+          />
         </div>
+
+        {isBrandOpen && (
+          <div className={styles.options}>
+            <button
+              type="button"
+              className={`${styles.option} ${
+                brand === null ? styles.optionActive : ""
+              }`}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleBrandSelect(null);
+              }}
+            >
+              All brands
+            </button>
+
+            {BRAND_OPTIONS.map((item) => (
+              <button
+                type="button"
+                key={item}
+                className={`${styles.option} ${
+                  brand === item ? styles.optionActive : ""
+                }`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleBrandSelect(item);
+                }}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
+      {/* PRICE */}
       <div className={styles.block}>
         <label className={styles.label}>Price 1 hour</label>
 
         <div
           className={styles.select}
-          onClick={() => onPriceChange(price === "50" ? null : "50")}
+          onClick={() => {
+            setIsPriceOpen((prev) => !prev);
+            setIsBrandOpen(false);
+          }}
         >
-          <span>{price ?? "Choose a price"}</span>
-          <Image src="/vector.svg" alt="arrow" width={13} height={7} />
+          <span>{price ? `Up to $${price}` : "Choose a price"}</span>
+          <Image
+            src="/vector.svg"
+            alt="arrow"
+            width={13}
+            height={7}
+            className={`${styles.arrow} ${
+              isPriceOpen ? styles.arrowOpen : ""
+            }`}
+          />
         </div>
+
+        {isPriceOpen && (
+          <div className={styles.options}>
+            <button
+              type="button"
+              className={`${styles.option} ${
+                price === null ? styles.optionActive : ""
+              }`}
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePriceSelect(null);
+              }}
+            >
+              Any price
+            </button>
+
+            {PRICE_OPTIONS.map((item) => (
+              <button
+                type="button"
+                key={item}
+                className={`${styles.option} ${
+                  price === item ? styles.optionActive : ""
+                }`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handlePriceSelect(item);
+                }}
+              >
+                Up to ${item}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
+      {/* MILEAGE */}
       <div className={styles.mileageBox}>
         <div className={styles.mileageField}>
           <span className={styles.mileageText}>From</span>
@@ -59,7 +180,7 @@ export default function Filters({
             type="number"
             className={styles.mileageInput}
             value={mileageFrom ?? ""}
-            onChange={(e) => onMileageFromChange(e.target.value)}
+            onChange={(e) => onMileageFromChange(e.target.value || null)}
           />
         </div>
 
@@ -71,7 +192,7 @@ export default function Filters({
             type="number"
             className={styles.mileageInput}
             value={mileageTo ?? ""}
-            onChange={(e) => onMileageToChange(e.target.value)}
+            onChange={(e) => onMileageToChange(e.target.value || null)}
           />
         </div>
       </div>
