@@ -32,12 +32,9 @@
   cursor: pointer;
   width: 20px;
   height: 20px;
+  
 }
 
-
-.favBtn:hover {
-  background: rgba(255, 255, 255, 0.9);
-}
 
 /* Заголовок + цена */
 .header {
