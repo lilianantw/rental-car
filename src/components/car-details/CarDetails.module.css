@@ -1,24 +1,20 @@
-/* Страница */
 .page {
   padding-top: 96px;
   padding-bottom: 120px;
 }
 
-/* Лейаут */
 .layout {
   display: flex;
   justify-content: space-between;
   gap: 32px;
 }
 
-/* Левая колонка */
 .leftColumn {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-/* Правая колонка */
 .rightColumn {
   width: 488px;
   display: flex;
@@ -26,7 +22,6 @@
   gap: 32px;
 }
 
-/* Фото */
 .imageWrapper {
   position: relative;
   width: 640px;
@@ -39,7 +34,6 @@
   object-fit: cover;
 }
 
-/* Основной блок инфо */
 .mainInfo {
   display: flex;
   flex-direction: column;
@@ -84,7 +78,6 @@
   background: #8d929a;
 }
 
-/* Цена */
 .price {
   margin-top: 32px;
   font-size: 24px;
@@ -92,14 +85,12 @@
   color: #3470ff;
 }
 
-/* Описание */
 .description {
   margin-top: 32px;
   font-size: 16px;
   line-height: 20px;
 }
 
-/* Секции */
 .sections {
   display: flex;
   flex-direction: column;
@@ -130,98 +121,4 @@
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-/* Форма */
-.formWrapper {
-  width: 640px;
-  padding: 32px;
-  border-radius: 10px;
-  background: #fff;
-  border: 1px solid #dadde1;
-}
-
-.formTitle {
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.formSubtitle {
-  margin: 8px 0 24px;
-  font-size: 14px;
-  color: #8d929a;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-/* fake placeholder WRAPPER */
-.fakeInputWrapper {
-  position: relative;
-  width: 100%;
-}
-
-/* Темный текст placeholder-а */
-.fakePlaceholder {
-  position: absolute;
-  left: 20px;
-  top: 12px;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 20px;
-  color: #8d929a;
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* БАЗОВЫЙ input */
-.realInput {
-  width: 100%;
-  height: 44px;
-  padding: 12px 20px;
-  border-radius: 12px;
-  border: none;
-  background: #f7f7f7;
-  font-size: 16px;
-  font-weight: 500;
-  color: #101828;
-  outline: none;
-  position: relative;
-  z-index: 1;
-}
-
-/* ИНДИВИДУАЛЬНЫЕ отступы */
-.realInputName {
-  padding-left: 64px; /* Name */
-}
-
-.realInputEmail {
-  padding-left: 72px; /* Email чуть длиннее */
-}
-
-/* textarea */
-.textarea {
-  min-height: 80px;
-  resize: vertical;
-}
-
-/* Кнопка */
-.submitButton {
-  width: 156px;
-  height: 44px;
-  margin: 0 auto;
-  border-radius: 40px;
-  background: #3470ff;
-  border: none;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.submitButton:hover {
-  background: #0b44cd;
 }

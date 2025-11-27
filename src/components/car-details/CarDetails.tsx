@@ -1,21 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 import styles from "./CarDetails.module.css";
 import type { Car } from "@/types/car.types";
+import RentForm from "@/components/car/RentForm/RentForm";
 
 type Props = {
   car: Car;
 };
 
 export default function CarDetails({ car }: Props) {
-  // КАСТОМНЫЕ плейсхолдеры
-  const [nameValue, setNameValue] = useState("");
-  const [emailValue, setEmailValue] = useState("");
-  const [dateValue, setDateValue] = useState("");
-  const [commentValue, setCommentValue] = useState("");
-
   // Адрес
   const [city = "", countryRaw = ""] = car.address.split(",");
   const country = countryRaw.trim();
@@ -53,75 +47,9 @@ export default function CarDetails({ car }: Props) {
               />
             </div>
 
-            {/* ФОРМА */}
-            <div className={styles.formWrapper}>
-              <h2 className={styles.formTitle}>Book your car now</h2>
-              <p className={styles.formSubtitle}>
-                Stay connected! We are always ready to help you.
-              </p>
+            {/* НОВАЯ ФОРМА */}
+            <RentForm carBrand={car.brand} carModel={car.model} />
 
-              <form className={styles.form}>
-
-                {/* NAME */}
-                <div className={styles.fakeInputWrapper}>
-                  <span className={styles.fakePlaceholder}>
-                    {nameValue ? "Name" : "Name*"}
-                  </span>
-
-                  <input
-                    className={`${styles.realInput} ${styles.realInputName}`}
-                    value={nameValue}
-                    onChange={(e) => setNameValue(e.target.value)}
-                    required
-                  />
-                </div>
-
-                {/* EMAIL */}
-                <div className={styles.fakeInputWrapper}>
-                  <span className={styles.fakePlaceholder}>
-                    {emailValue ? "Email" : "Email*"}
-                  </span>
-
-                  <input
-                    className={`${styles.realInput} ${styles.realInputEmail}`}
-                    value={emailValue}
-                    onChange={(e) => setEmailValue(e.target.value)}
-                    required
-                  />
-                </div>
-
-                {/* DATE */}
-                <div className={styles.fakeInputWrapper}>
-                  <span className={styles.fakePlaceholder}>
-                    {dateValue ? "Booking date" : "Booking date"}
-                  </span>
-
-                  <input
-                    className={styles.realInput}
-                    value={dateValue}
-                    onChange={(e) => setDateValue(e.target.value)}
-                  />
-                </div>
-
-                {/* COMMENT */}
-                <div className={styles.fakeInputWrapper}>
-                  <span className={styles.fakePlaceholder}>
-                    {commentValue ? "Comment" : "Comment"}
-                  </span>
-
-                  <textarea
-                    className={`${styles.realInput} ${styles.textarea}`}
-                    value={commentValue}
-                    onChange={(e) => setCommentValue(e.target.value)}
-                  />
-                </div>
-
-                <button type="submit" className={styles.submitButton}>
-                  Send
-                </button>
-
-              </form>
-            </div>
           </div>
 
           {/* ПРАВАЯ КОЛОНКА */}
