@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import styles from "./RentForm.module.css";
+import Notification from "@/components/ui/Button/Notification/Notification";
 
 export default function RentForm() {
   const [nameValue, setNameValue] = useState("");
@@ -10,7 +11,24 @@ export default function RentForm() {
   const [dateValue, setDateValue] = useState("");
   const [commentValue, setCommentValue] = useState("");
 
-  const dateInputRef = useRef<HTMLInputElement>(null);
+  const [success, setSuccess] = useState(false);
+
+  const dateRef = useRef<HTMLInputElement | null>(null);
+
+  const openCalendar = () => {
+    dateRef.current?.showPicker();
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    setSuccess(true);
+
+    setNameValue("");
+    setEmailValue("");
+    setDateValue("");
+    setCommentValue("");
+  };
 
   return (
     <div className={styles.formWrapper}>
@@ -19,14 +37,12 @@ export default function RentForm() {
         Stay connected! We are always ready to help you.
       </p>
 
-      <form className={styles.form}>
-
+      <form className={styles.form} onSubmit={handleSubmit}>
         {/* NAME */}
         <div className={styles.fakeInputWrapper}>
           <span className={styles.fakePlaceholder}>
             {nameValue ? "Name" : "Name*"}
           </span>
-
           <input
             className={`${styles.realInput} ${styles.realInputName}`}
             value={nameValue}
@@ -40,7 +56,6 @@ export default function RentForm() {
           <span className={styles.fakePlaceholder}>
             {emailValue ? "Email" : "Email*"}
           </span>
-
           <input
             className={`${styles.realInput} ${styles.realInputEmail}`}
             value={emailValue}
@@ -51,39 +66,60 @@ export default function RentForm() {
 
         {/* DATE */}
         <div className={styles.fakeInputWrapper}>
-
           <span
-            className={`${styles.fakePlaceholder} ${
-              dateValue ? styles.hidden : ""
-            }`}
+            className={
+              dateValue ? styles.placeholderHidden : styles.fakePlaceholder
+            }
           >
-            Booking date
+            Booking date*
           </span>
 
           <input
-            ref={dateInputRef}
             type="date"
-            className={`${styles.realInput} ${styles.realInputDate} ${
-              dateValue ? styles.filled : ""
-            }`}
+            ref={dateRef}
+            className={styles.hiddenDateInput}
+            onChange={(e) => {
+              const isoDate = e.target.value;
+              if (isoDate) {
+                const [year, month, day] = isoDate.split("-");
+                setDateValue(`${day}.${month}.${year}`);
+              } else {
+                setDateValue("");
+              }
+            }}
+            aria-hidden="true"
+          />
+
+          <input
+            type="text"
+            className={`${styles.realInput} ${styles.realInputDate}`}
             value={dateValue}
-            onChange={(e) => setDateValue(e.target.value)}
+            readOnly
+            onClick={openCalendar}
+            aria-label="Booking date"
           />
 
           <Image
             src="/calendar.svg"
-            alt="calendar"
+            alt="Open calendar"
             width={18}
             height={18}
             className={styles.calendarIcon}
-            onClick={() => dateInputRef.current?.showPicker()}
+            onClick={openCalendar}
           />
         </div>
 
         {/* COMMENT */}
         <div className={styles.fakeInputWrapper}>
-          <span className={styles.fakePlaceholder}>Comment</span>
-
+          <span
+            className={
+              commentValue
+                ? styles.placeholderHidden
+                : `${styles.fakePlaceholder} ${styles.textareaPlaceholder}`
+            }
+          >
+            Comment
+          </span>
           <textarea
             className={`${styles.realInput} ${styles.textarea}`}
             value={commentValue}
@@ -94,8 +130,14 @@ export default function RentForm() {
         <button type="submit" className={styles.submitButton}>
           Send
         </button>
-
       </form>
+
+      {success && (
+        <Notification
+          message="Car successfully booked!"
+          onClose={() => setSuccess(false)}
+        />
+      )}
     </div>
   );
 }

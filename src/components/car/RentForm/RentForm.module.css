@@ -23,13 +23,13 @@
   gap: 24px;
 }
 
-/* Обёртка поля */
+/* ОБЁРТКА */
 .fakeInputWrapper {
   position: relative;
   width: 100%;
 }
 
-/* Плейсхолдер */
+/* placeholder */
 .fakePlaceholder {
   position: absolute;
   left: 20px;
@@ -41,11 +41,20 @@
   z-index: 2;
 }
 
-/* Инпут */
+.placeholderHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.textareaPlaceholder {
+  top: 14px;
+}
+
+/* INPUT */
 .realInput {
   width: 100%;
   height: 44px;
-  padding: 12px 20px;
+  padding: 14px 20px 10px;
   border-radius: 12px;
   border: none;
   background: #f7f7f7;
@@ -53,66 +62,63 @@
   font-weight: 500;
   color: #101828;
   outline: none;
-
-  position: relative;
-  z-index: 1;
 }
 
-/* Корректируем для Name */
+/* NAME + EMAIL */
 .realInputName {
-  padding-left: 64px;
+  padding-left: 72px;
 }
 
-/* Корректируем для Email */
 .realInputEmail {
   padding-left: 72px;
 }
 
-/* —————————————— */
 /* DATE */
-/* —————————————— */
-
 .realInputDate {
   padding-left: 20px;
-  padding-right: 56px;
-
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-
-  color: transparent;      /* скрывает системный текст */
-  caret-color: #101828;    /* видимый курсор */
+  padding-right: 52px;
+  padding-top: 14px;
+  padding-bottom: 10px;
 }
 
-/* Когда дата выбрана — показываем текст */
-.realInputDate.filled {
-  color: #101828;
-}
-
-/* Убираем системную иконку */
-.realInputDate::-webkit-calendar-picker-indicator {
+/* Скрытое поле для календаря */
+.hiddenDateInput {
+  position: absolute;
   opacity: 0;
-  display: none;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  z-index: -1;
 }
 
-/* Твоя иконка */
+/* Иконка */
 .calendarIcon {
   position: absolute;
   right: 18px;
-  top: 12px;
-  width: 18px;
-  height: 18px;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
   z-index: 3;
 }
 
-/* textarea */
+/* TEXTAREA */
 .textarea {
   min-height: 80px;
+  padding: 14px 20px 10px;
+  border-radius: 12px;
+  border: none;
+  background: #f7f7f7;
+  font-size: 16px;
+  font-weight: 500;
+  color: #101828;
+  outline: none;
   resize: vertical;
 }
 
-/* Button */
+/* SUBMIT */
 .submitButton {
   width: 156px;
   height: 44px;
@@ -128,7 +134,4 @@
 
 .submitButton:hover {
   background: #0b44cd;
-}
-.fakePlaceholder.hidden {
-  display: none;
 }

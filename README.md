@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚗 RentalCar — Car Rental Platform
 
-## Getting Started
+RentalCar is a modern and fully responsive car rental web application built using **Next.js 14**, **TypeScript**, and **Zustand** for global state management.  
+Users can browse available cars, filter them by parameters, open detailed pages, and submit a booking form.
 
-First, run the development server:
+---
+
+## ✨ Features
+
+### 🔍 Car Catalog
+- Pagination with “Load more”
+- Real API integration
+- Instant filtering by:
+  - Brand
+  - Hourly price
+  - Mileage range
+
+### 🚘 Car Details Page
+- Large full-width image
+- Car specifications
+- Accessories and functionalities list
+- Rental conditions
+- Booking form with:
+  - Custom floating placeholders
+  - Hybrid date picker
+  - Success notification popup
+
+### ❤️ Favorites
+- Add/remove cars from favorites
+- Stored in Zustand
+
+### 🎨 Pixel-perfect UI
+- Based on Figma design:
+  - Manrope font
+  - Colors, spacing, shadows
+  - Fully responsive layout
+
+### 🧭 Navigation
+- Home
+- Catalog
+- Dynamic route `/catalog/[id]`
+
+### 🔧 Technologies
+- **Next.js App Router**
+- **React Server Components**
+- **Zustand**
+- **TypeScript**
+- **CSS Modules**
+- **API fetching**
+- **Next/Image optimization**
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+![Home](./public/screens/home.png)
+
+### 📚 Catalog Page
+![Catalog](./public/screens/catalog.png)
+
+### 🚘 Car Details + Booking Form
+![Details](./public/screens/details.png)
+
+> ℹ️ Screens should be placed in:  
+> `/public/screens/home.png`, `/catalog.png`, `/details.png`
+
+---
+
+## 🛠 Installation & Setup
 
 ```bash
+git clone https://github.com/YOUR_USERNAME/rental-car.git
+cd rental-car
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+App will run at:
+http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🧱 Project Structure
+src/
+ ├── app/
+ │    ├── page.tsx
+ │    ├── catalog/
+ │    │      ├── page.tsx
+ │    │      └── [id]/page.tsx
+ │    └── globals.css
+ ├── components/
+ │    ├── layout/Header/
+ │    ├── home/Hero/
+ │    ├── catalog/
+ │    ├── car-details/
+ │    └── car/RentForm/
+ ├── store/
+ │    ├── useCarsStore.ts
+ │    └── useFavoritesStore.ts
+ ├── services/
+ │    └── api/
+ ├── utils/
+ │    └── formatMileage.ts
+🚀 Deployment
+Production build:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+bash
+npm run build
+npm run start
+Deploy easily to Vercel.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+📄 License
+MIT License.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+👩‍💻 Author
+Liliana Toiunda
+Modern React / Next.js developer
+GitHub: https://github.com/lilianantw

@@ -16,7 +16,6 @@ type FiltersProps = {
   onSearch: () => void;
 };
 
-// статический список брендов и цен — как в макете/по ТЗ
 const BRAND_OPTIONS = [
   "BMW",
   "Audi",
@@ -58,6 +57,7 @@ export default function Filters({
 
   return (
     <div className={styles.wrapper}>
+
       {/* BRAND */}
       <div className={styles.block}>
         <label className={styles.label}>Car brand</label>
@@ -75,9 +75,7 @@ export default function Filters({
             alt="arrow"
             width={13}
             height={7}
-            className={`${styles.arrow} ${
-              isBrandOpen ? styles.arrowOpen : ""
-            }`}
+            className={`${styles.arrow} ${isBrandOpen ? styles.arrowOpen : ""}`}
           />
         </div>
 
@@ -132,9 +130,7 @@ export default function Filters({
             alt="arrow"
             width={13}
             height={7}
-            className={`${styles.arrow} ${
-              isPriceOpen ? styles.arrowOpen : ""
-            }`}
+            className={`${styles.arrow} ${isPriceOpen ? styles.arrowOpen : ""}`}
           />
         </div>
 

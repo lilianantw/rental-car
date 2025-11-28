@@ -23,6 +23,7 @@
   color: #8d929a;
 }
 
+/* SELECT (верхняя плашка) */
 .select {
   width: 204px;
   height: 44px;
@@ -52,6 +53,7 @@
   transform: rotate(180deg);
 }
 
+/* ВЫПАДАЮЩЕЕ ОКНО */
 .options {
   position: absolute;
   top: 100%;
@@ -70,6 +72,7 @@
   z-index: 10;
 }
 
+/* ОПЦИИ */
 .option {
   width: 100%;
   padding: 8px 16px;
@@ -78,22 +81,24 @@
   text-align: left;
 
   font-family: var(--font-manrope);
-  font-size: 14px;
+  font-size: 16px;          /* Figma */
   font-weight: 500;
-  color: #101828;
+  color: #8d929a;           /* Figma — серый */
 
   cursor: pointer;
 }
 
 .option:hover {
   background: #f5f7fa;
+  color: #101828;          /* Черный при ховере — Figma */
 }
 
 .optionActive {
   background: #e0ebff;
-  color: #0b44cd;
+  color: #0b44cd;          /* Синий — Figma */
 }
 
+/* MILEAGE */
 .mileageBox {
   width: 320px;
   height: 44px;
@@ -146,6 +151,7 @@
   background: #dadde1;
 }
 
+/* КНОПКА SEARCH */
 .searchBtn {
   width: 120px;
   height: 44px;

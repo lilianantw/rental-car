@@ -4,29 +4,22 @@ import Image from "next/image";
 import styles from "./CarDetails.module.css";
 import type { Car } from "@/types/car.types";
 import RentForm from "@/components/car/RentForm/RentForm";
+import { formatMileage } from "@/utils/formatMileage";
 
 type Props = {
   car: Car;
 };
 
 export default function CarDetails({ car }: Props) {
-  // Адрес
   const [city = "", countryRaw = ""] = car.address.split(",");
   const country = countryRaw.trim();
 
-  // Условия аренды
   const conditions = car.rentalConditions ?? [];
 
-  // Аксессуары
   const accessoriesList = [
     ...(car.accessories ?? []),
     ...(car.functionalities ?? []),
   ];
-
-  // Пробег
-  const formattedMileage = car.mileage
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 
   return (
     <section className={styles.page}>
@@ -47,9 +40,8 @@ export default function CarDetails({ car }: Props) {
               />
             </div>
 
-            {/* НОВАЯ ФОРМА */}
-            <RentForm carBrand={car.brand} carModel={car.model} />
-
+            {/* Форма — БЕЗ ПРОПСОВ */}
+            <RentForm />
           </div>
 
           {/* ПРАВАЯ КОЛОНКА */}
@@ -75,17 +67,17 @@ export default function CarDetails({ car }: Props) {
                 <span className={styles.metaDot} />
 
                 <span className={styles.metaItem}>
-                  Mileage: {formattedMileage} km
+                  Mileage: {formatMileage(car.mileage)} km
                 </span>
               </div>
 
               <p className={styles.price}>{car.rentalPrice}</p>
-
               <p className={styles.description}>{car.description}</p>
             </div>
 
             <div className={styles.sections}>
 
+              {/* Условия */}
               <div className={styles.section}>
                 <h3 className={styles.sectionTitle}>Rental Conditions:</h3>
                 <ul className={styles.list}>
@@ -98,6 +90,7 @@ export default function CarDetails({ car }: Props) {
                 </ul>
               </div>
 
+              {/* Характеристики */}
               <div className={styles.section}>
                 <h3 className={styles.sectionTitle}>Car Specifications:</h3>
                 <ul className={styles.list}>
@@ -123,6 +116,7 @@ export default function CarDetails({ car }: Props) {
                 </ul>
               </div>
 
+              {/* Аксессуары */}
               <div className={styles.section}>
                 <h3 className={styles.sectionTitle}>
                   Accessories and functionalities:

@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from "./CarCard.module.css";
 import type { Car } from "@/types/car.types";
 import { useFavoritesStore } from "@/store/useFavoritesStore";
+import { formatMileage } from "@/utils/formatMileage";
 
 type Props = {
   car: Car;
@@ -66,7 +67,7 @@ export default function CarCard({ car }: Props) {
       {/* тип и пробег */}
       <div className={styles.metaLine}>
         <span>{car.type}</span>
-        <span>{car.mileage.toLocaleString("en-US")} km</span>
+        <span>{formatMileage(car.mileage)} km</span>
       </div>
 
       {/* кнопка */}
@@ -78,3 +79,4 @@ export default function CarCard({ car }: Props) {
     </article>
   );
 }
+

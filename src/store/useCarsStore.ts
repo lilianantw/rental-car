@@ -2,13 +2,14 @@ import { create } from "zustand";
 import { fetchCars } from "@/services/api/carsApi";
 import type { Car, CarFilterParams } from "@/types/car.types";
 
+const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+
 type CarsState = {
   cars: Car[];
   loading: boolean;
   page: number;
   hasMore: boolean;
 
-  // filters
   brand: string | null;
   price: string | null;
   mileageFrom: string | null;
@@ -45,6 +46,8 @@ export const useCarsStore = create<CarsState>((set, get) => ({
     set({ loading: true });
 
     try {
+      await delay(600);
+
       const data = await fetchCars({
         page: String(page),
         limit: "12",
@@ -68,24 +71,24 @@ export const useCarsStore = create<CarsState>((set, get) => ({
 
     if (brand) params.brand = brand;
     if (price) params.rentalPrice = price;
-    if (mileageFrom) params.minMileage = mileageFrom;
-    if (mileageTo) params.maxMileage = mileageTo;
+    if (mileageFrom) params.minMileage = String(Number(mileageFrom));
+    if (mileageTo) params.maxMileage = String(Number(mileageTo));
 
     loadCars(params, false);
   },
 
   loadMore: () => {
-    const next = get().page + 1;
-    set({ page: next });
+    const nextPage = get().page + 1;
+    set({ page: nextPage });
 
     const { brand, price, mileageFrom, mileageTo, loadCars } = get();
 
     const params: CarFilterParams = {};
     if (brand) params.brand = brand;
     if (price) params.rentalPrice = price;
-    if (mileageFrom) params.minMileage = mileageFrom;
-    if (mileageTo) params.maxMileage = mileageTo;
+    if (mileageFrom) params.minMileage = String(Number(mileageFrom));
+    if (mileageTo) params.maxMileage = String(Number(mileageTo));
 
-    loadCars({ ...params, page: String(next) }, true);
+    loadCars({ ...params, page: String(nextPage) }, true);
   },
 }));
