@@ -207,5 +207,5 @@ npm run start
 ---
 
 # 👩‍💻 Author / Автор
-**Liliana Toiunda**  
+**Ліліана тоюнда**  
 GitHub: https://github.com/lilianantw
