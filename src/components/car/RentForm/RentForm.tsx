@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import styles from "./RentForm.module.css";
-import Notification from "@/components/ui/Button/Notification/Notification";
+import Notification from "@/components/ui/Notification/Notification";
 
 export default function RentForm() {
   const [nameValue, setNameValue] = useState("");

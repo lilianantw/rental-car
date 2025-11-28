@@ -6,23 +6,23 @@
   align-items: center;
   justify-content: center;
 
-  margin: 80px auto 124px auto; 
+  margin: 80px auto 124px auto;
 
   background: transparent;
-  border: 1px solid #3470ff;
+  border: 1px solid var(--color-blue-main);
   border-radius: 12px;
 
   font-family: var(--font-manrope);
   font-size: 16px;
   line-height: 20px;
   font-weight: 600;
-  color: #3470ff;
+  color: var(--color-blue-main);
 
   cursor: pointer;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .button:hover {
-  border-color: #0b44cd;
-  color: #0b44cd;
+  border-color: var(--color-blue-hover);
+  color: var(--color-blue-hover);
 }

@@ -10,7 +10,7 @@
   font-size: 12px;
   line-height: 16px;
   font-weight: 400;
-  color: #8d929a;
+  color: var(--color-gray);
 }
 
 /* Инпут */
@@ -18,9 +18,9 @@
   width: 160px;
   height: 44px;
 
-  background: #F7F7F7;
+  background: var(--color-bg-light-2);
   border-radius: 12px;
-  border: 1px solid #DADDE1;
+  border: 1px solid var(--color-border);
 
   padding: 0 18px;
 
@@ -28,15 +28,15 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
-  color: #101828;
+  color: var(--color-dark);
 
   outline: none;
 }
 
 .input::placeholder {
-  color: #8d929a;
+  color: var(--color-gray);
 }
 
 .input:focus {
-  border-color: #3470ff;
+  border-color: var(--color-blue-main);
 }

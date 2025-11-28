@@ -2,8 +2,8 @@
   width: 640px;
   padding: 32px;
   border-radius: 10px;
-  background: #fff;
-  border: 1px solid #dadde1;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
 }
 
 .formTitle {
@@ -14,7 +14,7 @@
 .formSubtitle {
   margin: 8px 0 24px;
   font-size: 14px;
-  color: #8d929a;
+  color: var(--color-gray);
 }
 
 .form {
@@ -36,7 +36,7 @@
   top: 12px;
   font-size: 16px;
   font-weight: 500;
-  color: #8d929a;
+  color: var(--color-gray);
   pointer-events: none;
   z-index: 2;
 }
@@ -57,10 +57,10 @@
   padding: 14px 20px 10px;
   border-radius: 12px;
   border: none;
-  background: #f7f7f7;
+  background: var(--color-bg-light-2);
   font-size: 16px;
   font-weight: 500;
-  color: #101828;
+  color: var(--color-dark);
   outline: none;
 }
 
@@ -110,10 +110,10 @@
   padding: 14px 20px 10px;
   border-radius: 12px;
   border: none;
-  background: #f7f7f7;
+  background: var(--color-bg-light-2);
   font-size: 16px;
   font-weight: 500;
-  color: #101828;
+  color: var(--color-dark);
   outline: none;
   resize: vertical;
 }
@@ -124,14 +124,14 @@
   height: 44px;
   margin: 0 auto;
   border-radius: 40px;
-  background: #3470ff;
+  background: var(--color-blue-main);
   border: none;
-  color: #fff;
+  color: var(--color-white);
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
 }
 
 .submitButton:hover {
-  background: #0b44cd;
+  background: var(--color-blue-hover);
 }

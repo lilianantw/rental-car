@@ -9,7 +9,7 @@
 }
 
 .box {
-  background: #fff;
+  background: var(--color-white);
   padding: 24px 32px;
   border-radius: 12px;
   width: 300px;

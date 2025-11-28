@@ -16,20 +16,18 @@ const Hero = () => {
 
       <div className={styles.overlay}></div>
 
-      <div className="container">
-        <div className={styles.content}>
-          <h1 className={styles.title}>Find your perfect rental car</h1>
+      <div className={styles.content}>
+        <h1 className={styles.title}>Find your perfect rental car</h1>
 
-      <p className={styles.subtitle}>
-        Reliable and budget-friendly rentals for any journey
-      </p>
+        <p className={styles.subtitle}>
+          Reliable and budget-friendly rentals for any journey
+        </p>
 
-      <Link href="/catalog">
-        <Button variant="primary" size="large">
-          View Catalog
-        </Button>
-       </Link>
-        </div>
+        <Link href="/catalog" className={styles.linkReset}>
+          <Button variant="primary" size="large">
+            View Catalog
+          </Button>
+        </Link>
       </div>
     </section>
   );
