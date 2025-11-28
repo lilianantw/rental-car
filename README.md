@@ -1,39 +1,31 @@
-# 🚗 RentalCar — Car Rental Platform
+# 🚗 RentalCar — Car Rental Platform / Платформа оренди авто
 
-RentalCar is a modern and fully responsive car rental web application built using **Next.js 14**, **TypeScript**, and **Zustand** for global state management.  
-Users can browse available cars, filter them by parameters, open detailed pages, and submit a booking form.
+Below you will find **English** and **Ukrainian** versions of the README.
 
 ---
+
+# 🌍 English Version
 
 ## ✨ Features
 
 ### 🔍 Car Catalog
 - Pagination with “Load more”
 - Real API integration
-- Instant filtering by:
-  - Brand
-  - Hourly price
-  - Mileage range
+- Instant filtering by brand, hourly price, mileage range
 
 ### 🚘 Car Details Page
-- Large full-width image
+- Full-width image
 - Car specifications
-- Accessories and functionalities list
+- Accessories & functionality
 - Rental conditions
-- Booking form with:
-  - Custom floating placeholders
-  - Hybrid date picker
-  - Success notification popup
+- Booking form with floating placeholders, hybrid date picker, success popup
 
 ### ❤️ Favorites
-- Add/remove cars from favorites
+- Add/remove favorites  
 - Stored in Zustand
 
-### 🎨 Pixel-perfect UI
-- Based on Figma design:
-  - Manrope font
-  - Colors, spacing, shadows
-  - Fully responsive layout
+### 🎨 UI
+- Desktop-only layout (1440px)
 
 ### 🧭 Navigation
 - Home
@@ -41,43 +33,28 @@ Users can browse available cars, filter them by parameters, open detailed pages,
 - Dynamic route `/catalog/[id]`
 
 ### 🔧 Technologies
-- **Next.js App Router**
-- **React Server Components**
-- **Zustand**
-- **TypeScript**
-- **CSS Modules**
-- **API fetching**
-- **Next/Image optimization**
+- Next.js App Router  
+- React Server Components  
+- TypeScript  
+- Zustand  
+- Axios  
+- CSS Modules  
+- Next/Image  
 
 ---
 
 ## 📸 Screenshots
 
-### 🏠 Home Page
-![Home](./public/screens/home.png)
-
-### 📚 Catalog Page
-![Catalog](./public/screens/catalog.png)
-
-### 🚘 Car Details + Booking Form
-![Details](./public/screens/details.png)
-
-> ℹ️ Screens should be placed in:  
-> `/public/screens/home.png`, `/catalog.png`, `/details.png`
+Stored in:  
+`public/screens/home.png`  
+`public/screens/catalog.png`  
+`public/screens/details.png`
 
 ---
 
-## 🛠 Installation & Setup
+## 🧱 Project Structure
 
-```bash
-git clone https://github.com/YOUR_USERNAME/rental-car.git
-cd rental-car
-npm install
-npm run dev
-App will run at:
-http://localhost:3000
-
-🧱 Project Structure
+```
 src/
  ├── app/
  │    ├── page.tsx
@@ -98,18 +75,137 @@ src/
  │    └── api/
  ├── utils/
  │    └── formatMileage.ts
-🚀 Deployment
-Production build:
+public/
+ └── screens/
+```
 
-bash
+---
+
+## 🛠 Installation
+
+```bash
+git clone https://github.com/YOUR_USERNAME/rental-car.git
+cd rental-car
+npm install
+npm run dev
+```
+
+App available at: http://localhost:3000/
+
+---
+
+## 🚀 Deployment
+
+```bash
 npm run build
 npm run start
-Deploy easily to Vercel.
+```
 
-📄 License
-MIT License.
+Ready for deployment on Vercel.
 
-👩‍💻 Author
-Liliana Toiunda
-Modern React / Next.js developer
+---
+
+# 🇺🇦 Українська версія
+
+## ✨ Можливості
+
+### 🔍 Каталог авто
+- Пагінація “Load more”
+- Реальне API
+- Миттєва фільтрація за брендом, ціною, пробігом
+
+### 🚘 Сторінка авто
+- Повноширинне фото
+- Характеристики авто
+- Аксесуари та функціональність
+- Умови оренди
+- Форма бронювання з плаваючими плейсхолдерами, date picker і попапом успіху
+
+### ❤️ Обране
+- Додавання/видалення улюблених авто  
+- Зберігається в Zustand
+
+### 🎨 UI
+- Лише десктоп-версія (1440px)
+
+### 🧭 Навігація
+- Home  
+- Catalog  
+- Динамічний маршрут `/catalog/[id]`
+
+### 🔧 Технології
+- Next.js App Router  
+- React Server Components  
+- TypeScript  
+- Zustand  
+- Axios  
+- CSS Modules  
+- Next/Image  
+
+---
+
+## 📸 Скриншоти
+
+Зберігаються у:  
+`public/screens/home.png`  
+`public/screens/catalog.png`  
+`public/screens/details.png`
+
+---
+
+## 🧱 Структура проєкту
+
+```
+src/
+ ├── app/
+ │    ├── page.tsx
+ │    ├── catalog/
+ │    │      ├── page.tsx
+ │    │      └── [id]/page.tsx
+ │    └── globals.css
+ ├── components/
+ │    ├── layout/Header/
+ │    ├── home/Hero/
+ │    ├── catalog/
+ │    ├── car-details/
+ │    └── car/RentForm/
+ ├── store/
+ │    ├── useCarsStore.ts
+ │    └── useFavoritesStore.ts
+ ├── services/
+ │    └── api/
+ ├── utils/
+ │    └── formatMileage.ts
+public/
+ └── screens/
+```
+
+---
+
+## 🛠 Встановлення
+
+```bash
+git clone https://github.com/YOUR_USERNAME/rental-car.git
+cd rental-car
+npm install
+npm run dev
+```
+
+Додаток доступний на: http://localhost:3000/
+
+---
+
+## 🚀 Деплой
+
+```bash
+npm run build
+npm run start
+```
+
+Готовий до деплою на Vercel.
+
+---
+
+# 👩‍💻 Author / Автор
+**Liliana Toiunda**  
 GitHub: https://github.com/lilianantw

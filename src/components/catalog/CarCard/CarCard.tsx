@@ -50,7 +50,8 @@ export default function CarCard({ car }: Props) {
       <header className={styles.header}>
         <Link href={`/catalog/${car.id}`} className={styles.titleLink}>
           <h3 className={styles.title}>
-            {car.brand} {car.model},{" "}
+            {car.brand}{" "}
+            <span className={styles.model}>{car.model}</span>,{" "}
             <span className={styles.year}>{car.year}</span>
           </h3>
         </Link>
@@ -79,4 +80,3 @@ export default function CarCard({ car }: Props) {
     </article>
   );
 }
-
