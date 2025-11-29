@@ -23,7 +23,6 @@
   color: var(--color-gray);
 }
 
-
 .select {
   width: 204px;
   height: 44px;
@@ -42,40 +41,48 @@
   color: var(--color-dark);
 
   cursor: pointer;
+  user-select: none;
 }
 
 .arrow {
   margin-top: 4px;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease;
 }
 
 .arrowOpen {
   transform: rotate(180deg);
 }
 
-/* ВЫПАДАЮЩЕЕ ОКНО */
+/* ========================
+   DROPDOWN
+=========================*/
+
 .options {
   position: absolute;
   top: 100%;
   left: 0;
+
   margin-top: 4px;
 
   width: 100%;
   max-height: 188px;
   overflow-y: auto;
 
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
+  background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 36px rgba(0, 0, 0, 0.06);
-
+  box-shadow: 0px 4px 36px rgba(0, 0, 0, 0.06);
   padding: 8px 0;
 
-  display: flex;
-  flex-direction: column;
-  z-index: 1000;
+  z-index: 999;
 }
 
+/* ВОТ ЭТУ ЧАСТЬ УДАЛИЛА! 
+   Она скрывала весь скролл */
+/*
+.options::-webkit-scrollbar {
+  width: 0;
+}
+*/
 
 .option {
   width: 100%;
@@ -97,12 +104,15 @@
   color: var(--color-dark);
 }
 
-.optionActive {
+.active {
   background: #e0ebff;
   color: var(--color-blue-hover);
 }
 
-/* MILEAGE */
+/* ========================
+   MILEAGE
+=========================*/
+
 .mileageBox {
   width: 320px;
   height: 44px;
@@ -155,7 +165,6 @@
   background: var(--color-border);
 }
 
-
 .searchBtn {
   width: 120px;
   height: 44px;
@@ -168,7 +177,6 @@
   font-size: 16px;
   font-weight: 500;
   color: var(--color-white);
-
   cursor: pointer;
 }
 

@@ -57,7 +57,6 @@ export default function Filters({
 
   return (
     <div className={styles.wrapper}>
-
       {/* BRAND */}
       <div className={styles.block}>
         <label className={styles.label}>Car brand</label>
@@ -125,6 +124,7 @@ export default function Filters({
           }}
         >
           <span>{price ? `Up to $${price}` : "Choose a price"}</span>
+
           <Image
             src="/vector.svg"
             alt="arrow"
@@ -170,25 +170,45 @@ export default function Filters({
 
       {/* MILEAGE */}
       <div className={styles.mileageBox}>
+        {/* FROM */}
         <div className={styles.mileageField}>
           <span className={styles.mileageText}>From</span>
+
           <input
-            type="number"
+            type="text"
+            inputMode="numeric"
             className={styles.mileageInput}
-            value={mileageFrom ?? ""}
-            onChange={(e) => onMileageFromChange(e.target.value || null)}
+            value={
+              mileageFrom
+                ? Number(mileageFrom).toLocaleString("en-US")
+                : ""
+            }
+            onChange={(e) => {
+              const raw = e.target.value.replace(/\D/g, "");
+              onMileageFromChange(raw || null);
+            }}
           />
         </div>
 
         <div className={styles.divider}></div>
 
+        {/* TO */}
         <div className={styles.mileageField}>
           <span className={styles.mileageText}>To</span>
+
           <input
-            type="number"
+            type="text"
+            inputMode="numeric"
             className={styles.mileageInput}
-            value={mileageTo ?? ""}
-            onChange={(e) => onMileageToChange(e.target.value || null)}
+            value={
+              mileageTo
+                ? Number(mileageTo).toLocaleString("en-US")
+                : ""
+            }
+            onChange={(e) => {
+              const raw = e.target.value.replace(/\D/g, "");
+              onMileageToChange(raw || null);
+            }}
           />
         </div>
       </div>
