@@ -26,10 +26,7 @@ export default function CarDetails({ car }: Props) {
       <div className="container">
         <div className={styles.layout}>
 
-          {/* ЛЕВАЯ КОЛОНКА */}
           <div className={styles.leftColumn}>
-
-            {/* Фото */}
             <div className={styles.imageWrapper}>
               <Image
                 src={car.img}
@@ -40,11 +37,9 @@ export default function CarDetails({ car }: Props) {
               />
             </div>
 
-            {/* Форма — БЕЗ ПРОПСОВ */}
             <RentForm />
           </div>
 
-          {/* ПРАВАЯ КОЛОНКА */}
           <div className={styles.rightColumn}>
             <div className={styles.mainInfo}>
 
@@ -60,7 +55,7 @@ export default function CarDetails({ car }: Props) {
 
               <div className={styles.metaRow}>
                 <span className={styles.metaItem}>
-                  <Image src="/location.svg" alt="" width={16} height={16} />
+                  <img src="/location.svg" width="16" height="16" alt="" />
                   {city}, {country}
                 </span>
 
@@ -77,46 +72,43 @@ export default function CarDetails({ car }: Props) {
 
             <div className={styles.sections}>
 
-              {/* Условия */}
               <div className={styles.section}>
                 <h3 className={styles.sectionTitle}>Rental Conditions:</h3>
                 <ul className={styles.list}>
                   {conditions.map((item) => (
                     <li key={item} className={styles.listItem}>
-                      <Image src="/check-circle.svg" alt="" width={16} height={16} />
+                      <img src="/check-circle.svg" width="16" height="16" alt="" />
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Характеристики */}
               <div className={styles.section}>
                 <h3 className={styles.sectionTitle}>Car Specifications:</h3>
                 <ul className={styles.list}>
                   <li className={styles.listItem}>
-                    <Image src="/calendar.svg" width={16} height={16} alt="" />
+                    <img src="/calendar.svg" width="16" height="16" alt="" />
                     <span>Year: {car.year}</span>
                   </li>
 
                   <li className={styles.listItem}>
-                    <Image src="/car.svg" width={16} height={16} alt="" />
+                    <img src="/car.svg" width="16" height="16" alt="" />
                     <span>Type: {car.type}</span>
                   </li>
 
                   <li className={styles.listItem}>
-                    <Image src="/fuel-pump.svg" width={16} height={16} alt="" />
+                    <img src="/fuel-pump.svg" width="16" height="16" alt="" />
                     <span>Fuel Consumption: {car.fuelConsumption}</span>
                   </li>
 
                   <li className={styles.listItem}>
-                    <Image src="/gear.svg" width={16} height={16} alt="" />
+                    <img src="/gear.svg" width="16" height="16" alt="" />
                     <span>Engine Size: {car.engineSize}</span>
                   </li>
                 </ul>
               </div>
 
-              {/* Аксессуары */}
               <div className={styles.section}>
                 <h3 className={styles.sectionTitle}>
                   Accessories and functionalities:
@@ -125,7 +117,7 @@ export default function CarDetails({ car }: Props) {
                 <ul className={styles.list}>
                   {accessoriesList.map((item) => (
                     <li key={item} className={styles.listItem}>
-                      <Image src="/check-circle.svg" width={16} height={16} alt="" />
+                      <img src="/check-circle.svg" width="16" height="16" alt="" />
                       <span>{item}</span>
                     </li>
                   ))}
